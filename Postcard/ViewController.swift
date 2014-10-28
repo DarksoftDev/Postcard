@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var messageSentLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         nameLabel.hidden=true
         messageLabel.hidden=true
         messageTextView.hidden=true
+        nameTextField.delegate=self
+        messageTextField.delegate=self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +49,15 @@ class ViewController: UIViewController {
         nameLabel.hidden=false
         messageLabel.hidden=false
         messageTextView.hidden=false
+        
+        // Resign first responder
+        nameTextField.resignFirstResponder()
+        messageTextField.resignFirstResponder()
     }
 
+    func textFieldShouldReturn(textFielf: UITextField!) -> Bool{
+        textFielf.resignFirstResponder()
+        return true
+    }
 }
 
