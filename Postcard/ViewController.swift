@@ -36,11 +36,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func send(sender: UIButton) {
-        //Change value
+        // Change value
         nameLabel.text=nameTextField.text
         messageTextView.text=messageTextField.text
         
-        //Unhide stuff
+        // Unhide stuff
         messageSentLabel.hidden=false
         sentToLabel.hidden=false
         nameLabel.hidden=false
